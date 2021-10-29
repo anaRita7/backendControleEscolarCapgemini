@@ -1,5 +1,7 @@
 package com.br.escolaCAP.contoleEscolar.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Data
+// @Data
 @Entity
 @Table(name="aluno")
 public class Aluno {
@@ -19,7 +21,7 @@ public class Aluno {
 	@Column(name = "codaluno")
 	private int codAluno;
 	
-	@Column(name = "nomealuno", nullable = false)
+	@Column(name = "nomealuno")
 	private String nomeAluno;
 	
 	@Column(name = "cpfaluno")
@@ -45,6 +47,35 @@ public class Aluno {
 		
 	@Column(name = "matriculado")
 	private boolean matriculado;
+	
+	public Aluno() {}
+	
+	// construtor para teste
+	public Aluno(String nomeAluno, java.sql.Date dataNascimento, String nomePai,
+			String nomeMae, String responsavel, String foneResponsavel) {
+		this.nomeAluno = nomeAluno;
+		this.dataNascimento = dataNascimento;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.responsavel = responsavel;
+		this.foneResponsavel = foneResponsavel;
+	}
+	
+	// Full constructor
+	public Aluno(int codAluno, String nomeAluno, String cpfAluno, Date dataNascimento, Date dataMatricula,
+			String nomePai, String nomeMae, String responsavel, String foneResponsavel, boolean matriculado) {
+		super();
+		this.codAluno = codAluno;
+		this.nomeAluno = nomeAluno;
+		this.cpfAluno = cpfAluno;
+		this.dataNascimento = dataNascimento;
+		this.dataMatricula = dataMatricula;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.responsavel = responsavel;
+		this.foneResponsavel = foneResponsavel;
+		this.matriculado = matriculado;
+	}
 
 	public int getCodAluno() {
 		return codAluno;
